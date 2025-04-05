@@ -1,0 +1,528 @@
+
+SPI_Test.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         0000000a  00800100  00000344  000003d8  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000344  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000008  0080010a  0080010a  000003e2  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  000003e2  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000414  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000070  00000000  00000000  00000454  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   000008ce  00000000  00000000  000004c4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000006e6  00000000  00000000  00000d92  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000003b6  00000000  00000000  00001478  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000160  00000000  00000000  00001830  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000003e5  00000000  00000000  00001990  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000273  00000000  00000000  00001d75  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000060  00000000  00000000  00001fe8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 30 01 	jmp	0x260	; 0x260 <__vector_1>
+   8:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  10:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  14:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  18:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  1c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  20:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  24:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  28:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  2c:	0c 94 f3 00 	jmp	0x1e6	; 0x1e6 <__vector_11>
+  30:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  34:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  38:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  3c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  40:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  44:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  48:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  4c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  50:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  54:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  58:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  5c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  60:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  64:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d8 e0       	ldi	r29, 0x08	; 8
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	e4 e4       	ldi	r30, 0x44	; 68
+  7c:	f3 e0       	ldi	r31, 0x03	; 3
+  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+  84:	aa 30       	cpi	r26, 0x0A	; 10
+  86:	b1 07       	cpc	r27, r17
+  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+
+0000008a <__do_clear_bss>:
+  8a:	21 e0       	ldi	r18, 0x01	; 1
+  8c:	aa e0       	ldi	r26, 0x0A	; 10
+  8e:	b1 e0       	ldi	r27, 0x01	; 1
+  90:	01 c0       	rjmp	.+2      	; 0x94 <.do_clear_bss_start>
+
+00000092 <.do_clear_bss_loop>:
+  92:	1d 92       	st	X+, r1
+
+00000094 <.do_clear_bss_start>:
+  94:	a2 31       	cpi	r26, 0x12	; 18
+  96:	b2 07       	cpc	r27, r18
+  98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
+  9a:	0e 94 7e 01 	call	0x2fc	; 0x2fc <main>
+  9e:	0c 94 a0 01 	jmp	0x340	; 0x340 <_exit>
+
+000000a2 <__bad_interrupt>:
+  a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a6 <InitPorts>:
+	}
+}
+
+void InitPorts(void) 
+{
+	DDRB = (1 << PB0 | 1 << PB1); //в порте B пины 0 и 1 работают на выход
+  a6:	83 e0       	ldi	r24, 0x03	; 3
+  a8:	84 b9       	out	0x04, r24	; 4
+	DDRD &= ~(1 << PD2); //INT0 на вход
+  aa:	52 98       	cbi	0x0a, 2	; 10
+	PORTD |= (1 << PD2); //поддяжка на INT0
+  ac:	5a 9a       	sbi	0x0b, 2	; 11
+  ae:	08 95       	ret
+
+000000b0 <InitTimer1>:
+}
+
+void InitTimer1(void)
+{
+	TCCR1A = 0;
+  b0:	10 92 80 00 	sts	0x0080, r1	; 0x800080 <__TEXT_REGION_LENGTH__+0x7e0080>
+	TCCR1B = (1 << CS11 | 1 << CS10 | 1 << WGM12); //тактовая частота F_CPU/64, режим работы СТС 
+  b4:	8b e0       	ldi	r24, 0x0B	; 11
+  b6:	80 93 81 00 	sts	0x0081, r24	; 0x800081 <__TEXT_REGION_LENGTH__+0x7e0081>
+	TCNT1 = 0;
+  ba:	10 92 85 00 	sts	0x0085, r1	; 0x800085 <__TEXT_REGION_LENGTH__+0x7e0085>
+  be:	10 92 84 00 	sts	0x0084, r1	; 0x800084 <__TEXT_REGION_LENGTH__+0x7e0084>
+	OCR1A = 15624; //до этого числа считаем
+  c2:	88 e0       	ldi	r24, 0x08	; 8
+  c4:	9d e3       	ldi	r25, 0x3D	; 61
+  c6:	90 93 89 00 	sts	0x0089, r25	; 0x800089 <__TEXT_REGION_LENGTH__+0x7e0089>
+  ca:	80 93 88 00 	sts	0x0088, r24	; 0x800088 <__TEXT_REGION_LENGTH__+0x7e0088>
+  ce:	08 95       	ret
+
+000000d0 <StartTimer1>:
+}
+
+void StartTimer1(void)
+{
+	TCNT1 = 0; //обнуление счетчика
+  d0:	10 92 85 00 	sts	0x0085, r1	; 0x800085 <__TEXT_REGION_LENGTH__+0x7e0085>
+  d4:	10 92 84 00 	sts	0x0084, r1	; 0x800084 <__TEXT_REGION_LENGTH__+0x7e0084>
+	TIMSK1 |= (1 << OCIE1A); //разрешаем прерывание 
+  d8:	ef e6       	ldi	r30, 0x6F	; 111
+  da:	f0 e0       	ldi	r31, 0x00	; 0
+  dc:	80 81       	ld	r24, Z
+  de:	82 60       	ori	r24, 0x02	; 2
+  e0:	80 83       	st	Z, r24
+  e2:	08 95       	ret
+
+000000e4 <StopTimer1>:
+}
+
+void StopTimer1(void)
+{
+	TIMSK1 &= ~(1 << OCIE1A); //запрещаем прерывание
+  e4:	ef e6       	ldi	r30, 0x6F	; 111
+  e6:	f0 e0       	ldi	r31, 0x00	; 0
+  e8:	80 81       	ld	r24, Z
+  ea:	8d 7f       	andi	r24, 0xFD	; 253
+  ec:	80 83       	st	Z, r24
+  ee:	08 95       	ret
+
+000000f0 <Bin2Dec>:
+}
+
+void Bin2Dec(uint16_t data) //в массив bcd_buffer[] записывается значение переменной cnt
+{
+  f0:	ac 01       	movw	r20, r24
+	bcd_buffer[3] = (uint8_t)(data / 1000);
+  f2:	9c 01       	movw	r18, r24
+  f4:	36 95       	lsr	r19
+  f6:	27 95       	ror	r18
+  f8:	36 95       	lsr	r19
+  fa:	27 95       	ror	r18
+  fc:	36 95       	lsr	r19
+  fe:	27 95       	ror	r18
+ 100:	a5 ec       	ldi	r26, 0xC5	; 197
+ 102:	b0 e2       	ldi	r27, 0x20	; 32
+ 104:	0e 94 91 01 	call	0x322	; 0x322 <__umulhisi3>
+ 108:	92 95       	swap	r25
+ 10a:	82 95       	swap	r24
+ 10c:	8f 70       	andi	r24, 0x0F	; 15
+ 10e:	89 27       	eor	r24, r25
+ 110:	9f 70       	andi	r25, 0x0F	; 15
+ 112:	89 27       	eor	r24, r25
+ 114:	ea e0       	ldi	r30, 0x0A	; 10
+ 116:	f1 e0       	ldi	r31, 0x01	; 1
+ 118:	83 83       	std	Z+3, r24	; 0x03
+	data = data % 1000;
+ 11a:	68 ee       	ldi	r22, 0xE8	; 232
+ 11c:	73 e0       	ldi	r23, 0x03	; 3
+ 11e:	86 9f       	mul	r24, r22
+ 120:	90 01       	movw	r18, r0
+ 122:	87 9f       	mul	r24, r23
+ 124:	30 0d       	add	r19, r0
+ 126:	96 9f       	mul	r25, r22
+ 128:	30 0d       	add	r19, r0
+ 12a:	11 24       	eor	r1, r1
+ 12c:	42 1b       	sub	r20, r18
+ 12e:	53 0b       	sbc	r21, r19
+	bcd_buffer[2] = (uint8_t)(data / 100);
+ 130:	9a 01       	movw	r18, r20
+ 132:	36 95       	lsr	r19
+ 134:	27 95       	ror	r18
+ 136:	36 95       	lsr	r19
+ 138:	27 95       	ror	r18
+ 13a:	ab e7       	ldi	r26, 0x7B	; 123
+ 13c:	b4 e1       	ldi	r27, 0x14	; 20
+ 13e:	0e 94 91 01 	call	0x322	; 0x322 <__umulhisi3>
+ 142:	96 95       	lsr	r25
+ 144:	87 95       	ror	r24
+ 146:	82 83       	std	Z+2, r24	; 0x02
+	data = data % 100;
+ 148:	64 e6       	ldi	r22, 0x64	; 100
+ 14a:	68 9f       	mul	r22, r24
+ 14c:	90 01       	movw	r18, r0
+ 14e:	69 9f       	mul	r22, r25
+ 150:	30 0d       	add	r19, r0
+ 152:	11 24       	eor	r1, r1
+ 154:	42 1b       	sub	r20, r18
+ 156:	53 0b       	sbc	r21, r19
+	bcd_buffer[1] = (uint8_t)(data / 10);
+ 158:	9a 01       	movw	r18, r20
+ 15a:	ad ec       	ldi	r26, 0xCD	; 205
+ 15c:	bc ec       	ldi	r27, 0xCC	; 204
+ 15e:	0e 94 91 01 	call	0x322	; 0x322 <__umulhisi3>
+ 162:	96 95       	lsr	r25
+ 164:	87 95       	ror	r24
+ 166:	96 95       	lsr	r25
+ 168:	87 95       	ror	r24
+ 16a:	96 95       	lsr	r25
+ 16c:	87 95       	ror	r24
+ 16e:	81 83       	std	Z+1, r24	; 0x01
+	data = data % 10;
+	bcd_buffer[0] = (uint8_t)(data);
+ 170:	9c 01       	movw	r18, r24
+ 172:	22 0f       	add	r18, r18
+ 174:	33 1f       	adc	r19, r19
+ 176:	88 0f       	add	r24, r24
+ 178:	99 1f       	adc	r25, r25
+ 17a:	88 0f       	add	r24, r24
+ 17c:	99 1f       	adc	r25, r25
+ 17e:	88 0f       	add	r24, r24
+ 180:	99 1f       	adc	r25, r25
+ 182:	82 0f       	add	r24, r18
+ 184:	93 1f       	adc	r25, r19
+ 186:	48 1b       	sub	r20, r24
+ 188:	59 0b       	sbc	r21, r25
+ 18a:	40 83       	st	Z, r20
+ 18c:	08 95       	ret
+
+0000018e <SendData>:
+}
+
+void SendData(uint8_t data)
+{
+	SPDR = data; //в регистр передачи данных записываем число, после чего сразу начинается передача данных
+ 18e:	8e bd       	out	0x2e, r24	; 46
+	while (!(SPSR & (1 << SPIF))); //остаемся в этом участке кода до тех пор, пока передача данных не закончится
+ 190:	0d b4       	in	r0, 0x2d	; 45
+ 192:	07 fe       	sbrs	r0, 7
+ 194:	fd cf       	rjmp	.-6      	; 0x190 <SendData+0x2>
+}
+ 196:	08 95       	ret
+
+00000198 <DisplayData>:
+
+
+void DisplayData(uint16_t data)
+{
+ 198:	cf 93       	push	r28
+ 19a:	df 93       	push	r29
+	Bin2Dec(data);
+ 19c:	0e 94 78 00 	call	0xf0	; 0xf0 <Bin2Dec>
+	PORTB &= ~(1 << PB1); //clk_out = 0
+ 1a0:	29 98       	cbi	0x05, 1	; 5
+	SendData(segments[bcd_buffer[0]]);
+ 1a2:	ca e0       	ldi	r28, 0x0A	; 10
+ 1a4:	d1 e0       	ldi	r29, 0x01	; 1
+ 1a6:	e8 81       	ld	r30, Y
+ 1a8:	f0 e0       	ldi	r31, 0x00	; 0
+ 1aa:	e0 50       	subi	r30, 0x00	; 0
+ 1ac:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1ae:	80 81       	ld	r24, Z
+ 1b0:	0e 94 c7 00 	call	0x18e	; 0x18e <SendData>
+	SendData(segments[bcd_buffer[1]]);
+ 1b4:	e9 81       	ldd	r30, Y+1	; 0x01
+ 1b6:	f0 e0       	ldi	r31, 0x00	; 0
+ 1b8:	e0 50       	subi	r30, 0x00	; 0
+ 1ba:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1bc:	80 81       	ld	r24, Z
+ 1be:	0e 94 c7 00 	call	0x18e	; 0x18e <SendData>
+	SendData(segments[bcd_buffer[2]]);
+ 1c2:	ea 81       	ldd	r30, Y+2	; 0x02
+ 1c4:	f0 e0       	ldi	r31, 0x00	; 0
+ 1c6:	e0 50       	subi	r30, 0x00	; 0
+ 1c8:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1ca:	80 81       	ld	r24, Z
+ 1cc:	0e 94 c7 00 	call	0x18e	; 0x18e <SendData>
+	SendData(segments[bcd_buffer[3]]);
+ 1d0:	eb 81       	ldd	r30, Y+3	; 0x03
+ 1d2:	f0 e0       	ldi	r31, 0x00	; 0
+ 1d4:	e0 50       	subi	r30, 0x00	; 0
+ 1d6:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1d8:	80 81       	ld	r24, Z
+ 1da:	0e 94 c7 00 	call	0x18e	; 0x18e <SendData>
+	PORTB |= (1 << PB1); //clk_out = 1
+ 1de:	29 9a       	sbi	0x05, 1	; 5
+}
+ 1e0:	df 91       	pop	r29
+ 1e2:	cf 91       	pop	r28
+ 1e4:	08 95       	ret
+
+000001e6 <__vector_11>:
+	while(1)
+	{}
+}
+
+ISR (TIMER1_COMPA_vect) 
+{
+ 1e6:	1f 92       	push	r1
+ 1e8:	0f 92       	push	r0
+ 1ea:	0f b6       	in	r0, 0x3f	; 63
+ 1ec:	0f 92       	push	r0
+ 1ee:	11 24       	eor	r1, r1
+ 1f0:	2f 93       	push	r18
+ 1f2:	3f 93       	push	r19
+ 1f4:	4f 93       	push	r20
+ 1f6:	5f 93       	push	r21
+ 1f8:	6f 93       	push	r22
+ 1fa:	7f 93       	push	r23
+ 1fc:	8f 93       	push	r24
+ 1fe:	9f 93       	push	r25
+ 200:	af 93       	push	r26
+ 202:	bf 93       	push	r27
+ 204:	ef 93       	push	r30
+ 206:	ff 93       	push	r31
+	DisplayData(cnt);
+ 208:	80 91 10 01 	lds	r24, 0x0110	; 0x800110 <cnt>
+ 20c:	90 91 11 01 	lds	r25, 0x0111	; 0x800111 <cnt+0x1>
+ 210:	0e 94 cc 00 	call	0x198	; 0x198 <DisplayData>
+	if (cnt < 9999)
+ 214:	80 91 10 01 	lds	r24, 0x0110	; 0x800110 <cnt>
+ 218:	90 91 11 01 	lds	r25, 0x0111	; 0x800111 <cnt+0x1>
+ 21c:	8f 30       	cpi	r24, 0x0F	; 15
+ 21e:	97 42       	sbci	r25, 0x27	; 39
+ 220:	50 f4       	brcc	.+20     	; 0x236 <__vector_11+0x50>
+		cnt++;
+ 222:	80 91 10 01 	lds	r24, 0x0110	; 0x800110 <cnt>
+ 226:	90 91 11 01 	lds	r25, 0x0111	; 0x800111 <cnt+0x1>
+ 22a:	01 96       	adiw	r24, 0x01	; 1
+ 22c:	90 93 11 01 	sts	0x0111, r25	; 0x800111 <cnt+0x1>
+ 230:	80 93 10 01 	sts	0x0110, r24	; 0x800110 <cnt>
+ 234:	04 c0       	rjmp	.+8      	; 0x23e <__vector_11+0x58>
+	else
+		cnt = 0;
+ 236:	10 92 11 01 	sts	0x0111, r1	; 0x800111 <cnt+0x1>
+ 23a:	10 92 10 01 	sts	0x0110, r1	; 0x800110 <cnt>
+}
+ 23e:	ff 91       	pop	r31
+ 240:	ef 91       	pop	r30
+ 242:	bf 91       	pop	r27
+ 244:	af 91       	pop	r26
+ 246:	9f 91       	pop	r25
+ 248:	8f 91       	pop	r24
+ 24a:	7f 91       	pop	r23
+ 24c:	6f 91       	pop	r22
+ 24e:	5f 91       	pop	r21
+ 250:	4f 91       	pop	r20
+ 252:	3f 91       	pop	r19
+ 254:	2f 91       	pop	r18
+ 256:	0f 90       	pop	r0
+ 258:	0f be       	out	0x3f, r0	; 63
+ 25a:	0f 90       	pop	r0
+ 25c:	1f 90       	pop	r1
+ 25e:	18 95       	reti
+
+00000260 <__vector_1>:
+
+ISR (INT0_vect) //прерывание по нажатию кнопки
+{
+ 260:	1f 92       	push	r1
+ 262:	0f 92       	push	r0
+ 264:	0f b6       	in	r0, 0x3f	; 63
+ 266:	0f 92       	push	r0
+ 268:	11 24       	eor	r1, r1
+ 26a:	2f 93       	push	r18
+ 26c:	3f 93       	push	r19
+ 26e:	4f 93       	push	r20
+ 270:	5f 93       	push	r21
+ 272:	6f 93       	push	r22
+ 274:	7f 93       	push	r23
+ 276:	8f 93       	push	r24
+ 278:	9f 93       	push	r25
+ 27a:	af 93       	push	r26
+ 27c:	bf 93       	push	r27
+ 27e:	ef 93       	push	r30
+ 280:	ff 93       	push	r31
+	if (switch_state == 0)
+ 282:	80 91 0e 01 	lds	r24, 0x010E	; 0x80010e <switch_state>
+ 286:	90 91 0f 01 	lds	r25, 0x010F	; 0x80010f <switch_state+0x1>
+ 28a:	89 2b       	or	r24, r25
+ 28c:	49 f4       	brne	.+18     	; 0x2a0 <__vector_1+0x40>
+	{
+		switch_state = 1;
+ 28e:	81 e0       	ldi	r24, 0x01	; 1
+ 290:	90 e0       	ldi	r25, 0x00	; 0
+ 292:	90 93 0f 01 	sts	0x010F, r25	; 0x80010f <switch_state+0x1>
+ 296:	80 93 0e 01 	sts	0x010E, r24	; 0x80010e <switch_state>
+		StartTimer1();
+ 29a:	0e 94 68 00 	call	0xd0	; 0xd0 <StartTimer1>
+ 29e:	10 c0       	rjmp	.+32     	; 0x2c0 <__vector_1+0x60>
+	}
+	else
+	{
+		StopTimer1();
+ 2a0:	0e 94 72 00 	call	0xe4	; 0xe4 <StopTimer1>
+		DisplayData(cnt);
+ 2a4:	80 91 10 01 	lds	r24, 0x0110	; 0x800110 <cnt>
+ 2a8:	90 91 11 01 	lds	r25, 0x0111	; 0x800111 <cnt+0x1>
+ 2ac:	0e 94 cc 00 	call	0x198	; 0x198 <DisplayData>
+		switch_state = 0;
+ 2b0:	10 92 0f 01 	sts	0x010F, r1	; 0x80010f <switch_state+0x1>
+ 2b4:	10 92 0e 01 	sts	0x010E, r1	; 0x80010e <switch_state>
+		cnt = 0;
+ 2b8:	10 92 11 01 	sts	0x0111, r1	; 0x800111 <cnt+0x1>
+ 2bc:	10 92 10 01 	sts	0x0110, r1	; 0x800110 <cnt>
+	}
+}
+ 2c0:	ff 91       	pop	r31
+ 2c2:	ef 91       	pop	r30
+ 2c4:	bf 91       	pop	r27
+ 2c6:	af 91       	pop	r26
+ 2c8:	9f 91       	pop	r25
+ 2ca:	8f 91       	pop	r24
+ 2cc:	7f 91       	pop	r23
+ 2ce:	6f 91       	pop	r22
+ 2d0:	5f 91       	pop	r21
+ 2d2:	4f 91       	pop	r20
+ 2d4:	3f 91       	pop	r19
+ 2d6:	2f 91       	pop	r18
+ 2d8:	0f 90       	pop	r0
+ 2da:	0f be       	out	0x3f, r0	; 63
+ 2dc:	0f 90       	pop	r0
+ 2de:	1f 90       	pop	r1
+ 2e0:	18 95       	reti
+
+000002e2 <InitSPI>:
+	PORTB |= (1 << PB1); //clk_out = 1
+}
+
+void InitSPI(void)
+{
+	DDRB |= (1 << PB3 | 1 << PB5); //настраиваем пины 3 и 5 порта В на выход
+ 2e2:	84 b1       	in	r24, 0x04	; 4
+ 2e4:	88 62       	ori	r24, 0x28	; 40
+ 2e6:	84 b9       	out	0x04, r24	; 4
+	SPSR |= (1 << SPI2X); //снижает скорость работы spi в два раза
+ 2e8:	8d b5       	in	r24, 0x2d	; 45
+ 2ea:	81 60       	ori	r24, 0x01	; 1
+ 2ec:	8d bd       	out	0x2d, r24	; 45
+	SPCR |= (1 << SPE | 1 << MSTR); //включение SPI, режим Master
+ 2ee:	8c b5       	in	r24, 0x2c	; 44
+ 2f0:	80 65       	ori	r24, 0x50	; 80
+ 2f2:	8c bd       	out	0x2c, r24	; 44
+	PORTB &= ~(1 << PB3 | 1 << PB5); //подаем нули на выходные пины
+ 2f4:	85 b1       	in	r24, 0x05	; 5
+ 2f6:	87 7d       	andi	r24, 0xD7	; 215
+ 2f8:	85 b9       	out	0x05, r24	; 5
+ 2fa:	08 95       	ret
+
+000002fc <main>:
+volatile uint16_t switch_state = 0;
+volatile uint8_t bcd_buffer[] = {0, 0, 0, 0};
+
+int main(void)
+{
+	InitPorts();
+ 2fc:	0e 94 53 00 	call	0xa6	; 0xa6 <InitPorts>
+	InitSPI();
+ 300:	0e 94 71 01 	call	0x2e2	; 0x2e2 <InitSPI>
+	InitTimer1();
+ 304:	0e 94 58 00 	call	0xb0	; 0xb0 <InitTimer1>
+	EIMSK |= (1 << INT0); //разрешение прерывания INT0
+ 308:	e8 9a       	sbi	0x1d, 0	; 29
+	EICRA |= (1 << ISC01); //запуск INT0 по заднему фронту
+ 30a:	e9 e6       	ldi	r30, 0x69	; 105
+ 30c:	f0 e0       	ldi	r31, 0x00	; 0
+ 30e:	80 81       	ld	r24, Z
+ 310:	82 60       	ori	r24, 0x02	; 2
+ 312:	80 83       	st	Z, r24
+	sei(); //глобальное разрешение прерываний
+ 314:	78 94       	sei
+	
+	PORTB &= ~(1 << PB0); //OE = low(active)
+ 316:	28 98       	cbi	0x05, 0	; 5
+	DisplayData(0);
+ 318:	80 e0       	ldi	r24, 0x00	; 0
+ 31a:	90 e0       	ldi	r25, 0x00	; 0
+ 31c:	0e 94 cc 00 	call	0x198	; 0x198 <DisplayData>
+ 320:	ff cf       	rjmp	.-2      	; 0x320 <main+0x24>
+
+00000322 <__umulhisi3>:
+ 322:	a2 9f       	mul	r26, r18
+ 324:	b0 01       	movw	r22, r0
+ 326:	b3 9f       	mul	r27, r19
+ 328:	c0 01       	movw	r24, r0
+ 32a:	a3 9f       	mul	r26, r19
+ 32c:	70 0d       	add	r23, r0
+ 32e:	81 1d       	adc	r24, r1
+ 330:	11 24       	eor	r1, r1
+ 332:	91 1d       	adc	r25, r1
+ 334:	b2 9f       	mul	r27, r18
+ 336:	70 0d       	add	r23, r0
+ 338:	81 1d       	adc	r24, r1
+ 33a:	11 24       	eor	r1, r1
+ 33c:	91 1d       	adc	r25, r1
+ 33e:	08 95       	ret
+
+00000340 <_exit>:
+ 340:	f8 94       	cli
+
+00000342 <__stop_program>:
+ 342:	ff cf       	rjmp	.-2      	; 0x342 <__stop_program>
