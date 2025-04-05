@@ -7,6 +7,10 @@ Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "SPI_Test", "SPI_Test\SPI_Te
 EndProject
 Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "dymanic_ind", "smth\dymanic_ind.cproj", "{53C47699-A74A-465B-8687-E0E0E64B788E}"
 EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "ACP", "ACP\ACP.cproj", "{7AABA0D3-DF2F-4806-932C-3A1128811056}"
+EndProject
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "UART", "UART\UART.cproj", "{363AED3D-2058-4996-850E-7B56CF9F24AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|AVR = Debug|AVR
@@ -21,6 +25,14 @@ Global
 		{53C47699-A74A-465B-8687-E0E0E64B788E}.Debug|AVR.Build.0 = Debug|AVR
 		{53C47699-A74A-465B-8687-E0E0E64B788E}.Release|AVR.ActiveCfg = Release|AVR
 		{53C47699-A74A-465B-8687-E0E0E64B788E}.Release|AVR.Build.0 = Release|AVR
+		{7AABA0D3-DF2F-4806-932C-3A1128811056}.Debug|AVR.ActiveCfg = Debug|AVR
+		{7AABA0D3-DF2F-4806-932C-3A1128811056}.Debug|AVR.Build.0 = Debug|AVR
+		{7AABA0D3-DF2F-4806-932C-3A1128811056}.Release|AVR.ActiveCfg = Release|AVR
+		{7AABA0D3-DF2F-4806-932C-3A1128811056}.Release|AVR.Build.0 = Release|AVR
+		{363AED3D-2058-4996-850E-7B56CF9F24AA}.Debug|AVR.ActiveCfg = Debug|AVR
+		{363AED3D-2058-4996-850E-7B56CF9F24AA}.Debug|AVR.Build.0 = Debug|AVR
+		{363AED3D-2058-4996-850E-7B56CF9F24AA}.Release|AVR.ActiveCfg = Release|AVR
+		{363AED3D-2058-4996-850E-7B56CF9F24AA}.Release|AVR.Build.0 = Release|AVR
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
